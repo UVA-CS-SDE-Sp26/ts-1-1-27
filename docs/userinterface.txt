@@ -1,0 +1,47 @@
+--- REQUIREMENTS ---
+
+1. When ran with no args, program prints numbered files
+2. When ran with 1 arg, program prints out the corresponding file from noargs list
+3. When ran with 2 args, program prints out corresponding file w/ cipher
+
+--- PLANNED METHODS ---
+
+void parseArgs(String args[]);
+
+parseArgs will be directly passed args[] from main, check/validate args and then call appropriate programControl function
+
+
+parseArgs pseudocode:
+
+numArgs = args.length
+
+if numArgs = 0
+    programControl.printFiles(); (provided by member C)
+else
+    if numArgs > 2
+        exit with too many args
+
+    parse args[0] to integer "fileNumber"
+
+    if fileNumber is not integer
+        exit with invalid file number
+
+    if no cipher provided (from numArgs check)
+        programControl.printFile(fileNumber);
+
+    if cipher provided (from numArgs check)
+        String cipher = args[1]
+        programControl.printFiles(fileNumber, cipher) // suggest an overloaded function here, B/C should validate cipher exists
+
+
+
+
+void printText(String lines[]);
+
+printText is a function to output lines of text, an array will be useful here so that file handler can just pass a string per file
+we will expect the lines formatted, but this is just a good compartmentalization thing
+
+printText pseudocode:
+
+for String in lines:
+    print String
