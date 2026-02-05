@@ -1,0 +1,12 @@
+Requirements:
+1. Look for a folder called 'data' either in the directory of the program or in the project folder.
+2. When a request for a file is received, return the contents of the file. 
+3. The function should take in the file name, along with a key. Without a second parameter, the program should use the default key.
+
+Implementation:
+1. File contents can be returned by using Linux commands like cat, storing and returning the contents in a string.
+2. SHould just be a function that can be called by Team Member C's implementation, which will then implement the cipher part. 
+
+Pseudocode:
+
+need to implement. 
