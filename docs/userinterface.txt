@@ -13,26 +13,10 @@ parseArgs will be directly passed args[] from main, check/validate args and then
 
 parseArgs pseudocode:
 
-numArgs = args.length
-
-if numArgs = 0
-    programControl.printFiles(); (provided by member C)
-else
-    if numArgs > 2
-        exit with too many args
-
-    parse args[0] to integer "fileNumber"
-
-    if fileNumber is not integer
-        exit with invalid file number
-
-    if no cipher provided (from numArgs check)
-        programControl.printFile(fileNumber);
-
-    if cipher provided (from numArgs check)
-        String cipher = args[1]
-        programControl.printFiles(fileNumber, cipher) // suggest an overloaded function here, B/C should validate cipher exists
-
+1. check if more than 2 args, exit if so
+2. validate 1 arg to int, exit if not int
+3. pass arguments to program Control, expect List of strings as return type
+4. print strings received from program control
 
 
 
