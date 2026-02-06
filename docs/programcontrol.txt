@@ -1,0 +1,23 @@
+--- REQUIREMENTS ---
+
+1. Connect command line user interface to file handler
+2. Request file contents from file handler when needed
+3. Return readable text provided by file handler to user interface
+
+--- METHODS ---
+
+String getFile()
+
+Given no arguments, this method will call the file handler method for an array of file names in order,
+and return a string which lists each file name with a number
+
+String getFile(int fileNumber)
+
+Given one integer argument, this method will call the file handler method for an array of file names in order,
+and then call the file handler method for the contents of the correct file. If there is no file matching the
+index given, return an error string.
+
+String getFile(int fileNumber, String cipher)
+
+Given one integer argument and one string argument, this method will ignore the given cipher and perform
+the same task as the above method using the given integer.
