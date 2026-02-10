@@ -9,4 +9,43 @@ Implementation:
 
 Pseudocode:
 
-need to implement. 
+keep the default key 
+
+function findDataFolder():
+    try data folder in the same directory the program is run from
+    if "./data" exists and is a folder:
+        return "./data"
+
+    otherwise try the project folder (one level up)
+    if "../data" exists and is a folder:
+        return "../data"
+
+    if neither exists, return ERROR
+
+
+function getFileList():
+    dataFolder = findDataFolder()
+    if dataFolder is ERROR:
+        return ERROR("data folder not found")
+
+    return names of files inside data folder
+    fileNames = list all file names inside dataFolder, this is returned to program control
+    return fileNames
+
+
+function getFileContents(fileName):
+    overload that uses default key
+    return getFileContents(fileName)
+
+
+function getFileContents(fileName, key):
+    dataFolder = findDataFolder()
+    if dataFolder is ERROR:
+        return ERROR("data folder not found")
+
+    filePath = dataFolder + "/" + fileName
+    if filePath does not exist:
+        return ERROR
+    contents = use some java function to turn the file into a string
+    return contents
+
