@@ -6,9 +6,10 @@
 
 --- PLANNED METHODS ---
 
-void parseArgs(String args[]);
+String parseArgs(String args[]);
 
-parseArgs will be directly passed args[] from main, check/validate args and then call appropriate programControl function
+parseArgs will be directly passed args[] from main, check/validate args and then call appropriate programControl function,
+return a string to main which will be printed.
 
 
 parseArgs pseudocode:
@@ -29,3 +30,17 @@ printText pseudocode:
 
 for String in lines:
     print String
+
+
+--- TESTING APPROACH ---
+
+test parseArgs with different passed arrays of strings. we will use mockito to check that the appropriate function calls
+are being made to programControl (or not).
+inputs to test:
+- 0 arg calls ProgramControl.getFile() with no arguments
+- 1 arg (with valid int) calls ProgramControl.getFile() with 1 arg
+- 1 arg (with invalid int) does not call ProgramControl.getFile()
+- 2 arg (with valid int) calls ProgramControl.getFile() with 2 args
+- 2 arg (with invalid int) does not call ProgramControl.getFile()
+- more than 2 args does not call ProgramControl.getFile()
+- both "03" and "3" will parse to int = 3.
