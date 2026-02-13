@@ -12,6 +12,7 @@ public class UserInterface {
                 //1-arg case, need to validate as int
                 try{
                     int fileNumber = Integer.parseInt(args[0]);
+                    if(fileNumber == 0) {return "File number zero is invalid";}
                     return ProgramControl.getFile(fileNumber);
                 } catch (NumberFormatException e){
                     return "Invalid argument supplied\nUsage: TopSecret [file_number] [cipher]";
