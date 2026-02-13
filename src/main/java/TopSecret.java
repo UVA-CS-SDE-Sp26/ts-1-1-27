@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 /**
  * Commmand Line Utility
  */

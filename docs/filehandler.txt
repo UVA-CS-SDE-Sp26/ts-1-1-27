@@ -49,3 +49,14 @@ function getFileContents(fileName, key):
     contents = use some java function to turn the file into a string
     return contents
 
+-----------------SOFTWARE DESIGN DOCUMENTATION-------------------
+- The program is run through the TopSecret class with 0, 1, or 2 arguments being accepted
+- The TopSecret class calls a static method of the UserInterface class which verifies the validity of the
+input values and calls the correct ProgramControl method to request a string output
+- The ProgramControl class determines whether to print a list of files or the contents of a requested file.
+Both outputs require calling methods from FileHandler.
+- The FileHandler class can return an array of strings corresponding to file names in 'data' and it can also return
+the string content of a file requested by name.
+- The ProgramControl class checks the numerical value of integer inputs and returns strings in the correct format
+back to the UserInterface.
+- The UserInterface ultimately returns the correct string that needs to be outputted back to TopSecret.

@@ -23,24 +23,22 @@ class ProgramControlTest {
     @Test
     void testInvalidOneInput() {
         int input = FileHandler.getFileList().length+1;
-        assertEquals( "Error -- File number too large", ProgramControl.getFile(input));
+        assertEquals( "Error -- Enter a valid file number please", ProgramControl.getFile(input));
     }
 
     @Test
     void testValidOneInput() {
         try (MockedStatic<FileHandler> mock = mockStatic(FileHandler.class)){
-            ProgramControl.getFile(0);
+            ProgramControl.getFile(1);
 
-            mock.verify(() -> FileHandler.getFileContents("Sample"), times(1));
+            mock.verify(() -> FileHandler.getFileContents("test.txt"), times(1));
         }
     }
 
     @Test
     void testTwoInput() {
         try (MockedStatic<FileHandler> mock = mockStatic(FileHandler.class)){
-            mock.when(() -> FileHandler.getFileContents("Sample")).thenReturn(true);
-
-            ProgramControl.getFile(0, "abcdefghijklmnopqrstuvxyz");
+            ProgramControl.getFile(1, "abcdefghijklmnopqrstuvxyz");
 
             mock.verify(() -> FileHandler.getFileContents("Sample", "abcdefghijklmnopqrstuvxyz"), times(1));
         }

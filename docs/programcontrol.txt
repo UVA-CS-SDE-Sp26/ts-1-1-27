@@ -21,3 +21,11 @@ String getFile(int fileNumber, String cipher)
 
 Given one integer argument and one string argument, this method will ignore the given cipher and perform
 the same task as the above method using the given integer.
+
+---------------TESTING DOCUMENTATION--------------------
+1) For the UserInterface class, we used Mockito to verify if the correct ProgramControl methods were being
+called in the correct cases.
+2) For the ProgramControl class, we implemented a JUnit test to check the output in the case of no arguments
+being provided. For the tests for one and two arguments, we used Mockito to verify if the correct FileHandler
+methods were called in the correct cases.
+3) For the FileHandler class, we used unit tests to check the output of each method based on given files.

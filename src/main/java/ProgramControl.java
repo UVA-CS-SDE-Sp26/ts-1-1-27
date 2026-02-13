@@ -16,23 +16,33 @@ public class ProgramControl {
         return build.toString();
     }
 
+
     public static String getFile(int fileNumber) {
         String[] files = FileHandler.getFileList();
 
-        if (files == null || fileNumber >= files.length){
-            return "Error -- File number too large";
+        if (files == null || files.length == 0) {
+            return "Error -- There are no files to display";
         }
 
-        return FileHandler.getFileContents(files[fileNumber-1]);
+        if (fileNumber < 1 || fileNumber > files.length) {
+            return "Error -- Enter a valid file number please";
+        }
+
+        return FileHandler.getFileContents(files[fileNumber - 1]);
     }
+
 
     public static String getFile(int fileNumber, String cipher) {
         String[] files = FileHandler.getFileList();
 
-        if (fileNumber >= files.length){
-            return "Error -- File number too large";
+        if (files == null || files.length == 0) {
+            return "Error -- There are no files to display";
         }
 
-        return FileHandler.getFileContents(files[fileNumber-1], cipher);
+        if (fileNumber < 1 || fileNumber > files.length) {
+            return "Error -- Enter a valid file number please";
+        }
+
+        return FileHandler.getFileContents(files[fileNumber - 1], cipher);
     }
 }
