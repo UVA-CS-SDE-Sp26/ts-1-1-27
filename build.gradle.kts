@@ -9,6 +9,11 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = 'TopSecret'  // or the fully qualified name like 'com.yourpackage.TopSecret'
+}
+
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
