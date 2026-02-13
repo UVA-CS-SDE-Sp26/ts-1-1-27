@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class FileHandler {
@@ -35,6 +36,8 @@ public class FileHandler {
         for (File f : files) {
             if (f.isFile()) names.add(f.getName());
         }
+
+        Collections.sort(names);
 
         return names.toArray(new String[0]);
     }
