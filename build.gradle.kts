@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "org.example"
@@ -10,7 +11,7 @@ repositories {
 }
 
 application {
-    mainClass = 'TopSecret'  // or the fully qualified name like 'com.yourpackage.TopSecret'
+    mainClass = "TopSecret"  // or the fully qualified name like 'com.yourpackage.TopSecret'
 }
 
 
