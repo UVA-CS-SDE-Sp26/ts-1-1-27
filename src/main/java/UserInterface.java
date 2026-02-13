@@ -22,6 +22,7 @@ public class UserInterface {
                 //2-arg case, int index and cipher
                 try{
                     int fileNumber = Integer.parseInt(args[0]);
+                    if(fileNumber <= 0) {return "File number less than one is invalid";}
                     String cipher = args[1];
                     return ProgramControl.getFile(fileNumber, cipher);
                 } catch (NumberFormatException e){

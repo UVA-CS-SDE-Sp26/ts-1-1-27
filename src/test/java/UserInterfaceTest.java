@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import org.mockito.MockedStatic;
@@ -90,6 +92,44 @@ class UserInterfaceTest {
             UserInterface.parseArgs(args);
 
             // Verify no methods were called
+            mockedPC.verifyNoInteractions();
+        }
+    }
+
+    @Test
+    public void testEmptyStringArgReturnsError() {
+        String[] args = {""};
+        String result = UserInterface.parseArgs(args);
+
+        assertEquals("Invalid argument supplied\nUsage: TopSecret [file_number] [cipher]", result);
+    }
+
+    @Test
+    public void testDecimalNumberReturnsError() {
+        String[] args = {"3.5"};
+        String result = UserInterface.parseArgs(args);
+
+        assertEquals("Invalid argument supplied\nUsage: TopSecret [file_number] [cipher]", result);
+    }
+
+    @Test
+    public void testNegativeFileNumberReturnsError() {
+        try (MockedStatic<ProgramControl> mockedPC = mockStatic(ProgramControl.class)) {
+            String[] args = {"-1"};
+            String result = UserInterface.parseArgs(args);
+
+            assertEquals("File number less than one is invalid", result);
+            mockedPC.verifyNoInteractions();
+        }
+    }
+
+    @Test
+    public void testZeroFileNumberReturnsError() {
+        try (MockedStatic<ProgramControl> mockedPC = mockStatic(ProgramControl.class)) {
+            String[] args = {"0"};
+            String result = UserInterface.parseArgs(args);
+
+            assertEquals("File number less than one is invalid", result);
             mockedPC.verifyNoInteractions();
         }
     }

@@ -15,21 +15,10 @@ return a string to main which will be printed.
 parseArgs pseudocode:
 
 1. check if more than 2 args, exit if so
-2. validate 1 arg to int, exit if not int
+2. validate 1 arg to int, exit if not int or less than zero
 3. pass arguments to program Control, expect List of strings as return type
 4. print strings received from program control
 
-
-
-void printText(String lines[]);
-
-printText is a function to output lines of text, an array will be useful here so that file handler can just pass a string per file
-we will expect the lines formatted, but this is just a good compartmentalization thing
-
-printText pseudocode:
-
-for String in lines:
-    print String
 
 
 --- TESTING APPROACH ---
@@ -44,3 +33,6 @@ inputs to test:
 - 2 arg (with invalid int) does not call ProgramControl.getFile()
 - more than 2 args does not call ProgramControl.getFile()
 - both "03" and "3" will parse to int = 3.
+- negative / zero as file index
+- float as file index
+
