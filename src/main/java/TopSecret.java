@@ -1,5 +1,10 @@
+import java.sql.SQLOutput;
+
 /**
  * Commmand Line Utility
  */
 public class TopSecret {
+    public static void main(String[] args){
+        System.out.println(UserInterface.parseArgs(args));
+    }
 }
